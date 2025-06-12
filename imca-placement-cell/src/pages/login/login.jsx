@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import backgroundImage from "../../assets/fergusson.jpg"; // ✅ relative path
-import logoImage from "../../assets/fergussonlogo.jpeg";  // ✅ fixed path
+import logoImage from "../../assets/fergussonlogo.jpeg.jpg";  // ✅ fixed path
 
 const LoginPage = () => {
   const navigate = useNavigate();

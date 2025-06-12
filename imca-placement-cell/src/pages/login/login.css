@@ -1,10 +1,13 @@
 /* login.css */
+
+/* Reset and base styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Updated to Poppins for consistency */
 }
 
+/* PANNEL / HEADER */
 .pannel {
   height: 70px;
   background-color: #482102;
@@ -43,15 +46,98 @@ body {
   cursor: pointer;
 }
 
+/* LOGIN FORM CONTAINER */
 .container {
-  margin-left: 6%;
-  margin-top: 6%;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  width: 350px;
+  position: relative;
+  margin-left: 8%;
+  margin-top: 3%;
+  background-color: rgba(255, 255, 255, 0.70);
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  color: #000;
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+/* Headings */
+.container h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2e2e2e;
+}
+
+.container h2 {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+/* Select role dropdown */
+.container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Input group styling */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 12px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: #555;
+}
+
+/* Input fields */
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: transparent;
   color: #000;
 }
 
-/* ... rest of your existing CSS ... */
+/* Password visibility toggle */
+.password-group i:last-child {
+  margin-left: 10px;
+  color: #333;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffc107; /* Bootstrap warning yellow */
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #e0a800;
+}
+
+/* Error message */
+.error-message {
+  margin-top: 15px;
+  color: red;
+  font-size: 0.9rem;
+}
