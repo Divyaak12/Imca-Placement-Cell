@@ -1,26 +1,29 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
-const Login = ({ onLogin }) => {
+const LoginPage = () => {
+  const navigate = useNavigate();
+
+  // Form states
   const [role, setRole] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Hardcoded credentials
   const credentials = {
     student: { username: "student", password: "student123" },
     teacher: { username: "teacher", password: "teacher123" },
     admin: { username: "admin", password: "admin123" },
   };
 
-  const handleTogglePassword = () => {
-    setShowPassword((prev) => !prev);
-  };
-
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Role validation
     if (!role) {
       setErrorMessage("Please select a role.");
       return;
@@ -29,14 +32,19 @@ const Login = ({ onLogin }) => {
     const selectedRole = role.toLowerCase();
     const enteredUsername = username.trim().toLowerCase();
 
+    // Check if credentials match
     if (
-      credentials[selectedRole] &&
-      credentials[selectedRole].username === enteredUsername &&
-      credentials[selectedRole].password === password
+      credentials[selectedRole]?.username === enteredUsername &&
+      credentials[selectedRole]?.password === password
     ) {
       setErrorMessage("");
-      // Instead of redirecting, call onLogin
-      onLogin(selectedRole); // Pass role if needed
+
+      // Navigate based on role
+      if (selectedRole === "student") {
+        navigate("/dashboard");
+      } else {
+        alert(`Redirecting ${selectedRole}, but dashboard not yet created.`);
+      }
     } else {
       setErrorMessage("Invalid username or password.");
     }
@@ -44,6 +52,7 @@ const Login = ({ onLogin }) => {
 
   return (
     <>
+      {/* Top Panel */}
       <div className="pannel">
         <div className="pannel-left">
           <div className="pannel-logo">
@@ -59,15 +68,18 @@ const Login = ({ onLogin }) => {
         </div>
       </div>
 
+      {/* Main Login Section */}
       <section className="container">
         <div className="logo-container">
           <h1>IMCA PLACEMENT PORTAL</h1>
           <h2>Sign In</h2>
+
           <form onSubmit={handleSubmit}>
+            {/* Role Select Dropdown */}
             <select
-              required
               value={role}
               onChange={(e) => setRole(e.target.value)}
+              required
             >
               <option value="" disabled>
                 Select Role
@@ -77,6 +89,7 @@ const Login = ({ onLogin }) => {
               <option value="admin">Admin</option>
             </select>
 
+            {/* Username Field */}
             <div className="input-group">
               <i className="fa-regular fa-user"></i>
               <input
@@ -88,6 +101,7 @@ const Login = ({ onLogin }) => {
               />
             </div>
 
+            {/* Password Field */}
             <div className="input-group password-group">
               <i className="fa-solid fa-lock"></i>
               <input
@@ -101,12 +115,15 @@ const Login = ({ onLogin }) => {
                 className={`fa-regular ${
                   showPassword ? "fa-eye-slash" : "fa-eye"
                 }`}
-                onClick={handleTogglePassword}
+                onClick={() => setShowPassword((prev) => !prev)}
                 style={{ cursor: "pointer" }}
               ></i>
             </div>
 
+            {/* Submit Button */}
             <button type="submit">Sign In</button>
+
+            {/* Error Message */}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </form>
         </div>
@@ -115,4 +132,4 @@ const Login = ({ onLogin }) => {
   );
 };
 
-export default Login;
+export default LoginPage;

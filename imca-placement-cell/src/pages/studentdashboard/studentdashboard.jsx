@@ -1,9 +1,10 @@
 import React from "react";
 import "./studentdashboard.css"; // your existing CSS file
+import { Link } from "react-router-dom"; // ✅ Import Link
 
 const StudentDashboard = () => {
   return (
-    <div className="container">
+    <div className="dashboardcontainer">
       {/* Sidebar */}
       <aside className="sidebar">
         <img
@@ -17,39 +18,43 @@ const StudentDashboard = () => {
           <br />
           <strong>Session:</strong> 2024-2025
         </div>
+
+        {/* ✅ Sidebar Navigation */}
         <nav className="nav-links">
-          <a href="#">
+          <Link to="/dashboard">
             <i className="fas fa-home"></i> Home
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/profile">
             <i className="fas fa-user"></i> Profile
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-briefcase"></i> Internship
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-tasks"></i> Application Track
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-comments"></i> Interview
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-building"></i> Companies
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-envelope"></i> Contact
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-comment-dots"></i> Feedback
-          </a>
+          </Link>
         </nav>
+
+        {/* Bottom Sidebar Links */}
         <div className="bottom-links">
-          <a href="#">
+          <Link to="#">
             <i className="fas fa-cog"></i> Settings
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <i className="fas fa-sign-out-alt"></i> Sign Out
-          </a>
+          </Link>
         </div>
       </aside>
 
