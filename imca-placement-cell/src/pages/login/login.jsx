@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import backgroundImage from "../../assets/fergusson.jpg"; // ✅ relative path
+import logoImage from "../../assets/fergussonlogo.jpeg";  // ✅ fixed path
 
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  // Form states
+  // State for form
   const [role, setRole] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Hardcoded credentials
+  // Hardcoded login data
   const credentials = {
     student: { username: "student", password: "student123" },
     teacher: { username: "teacher", password: "teacher123" },
     admin: { username: "admin", password: "admin123" },
   };
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Role validation
     if (!role) {
       setErrorMessage("Please select a role.");
       return;
@@ -32,14 +32,12 @@ const LoginPage = () => {
     const selectedRole = role.toLowerCase();
     const enteredUsername = username.trim().toLowerCase();
 
-    // Check if credentials match
     if (
       credentials[selectedRole]?.username === enteredUsername &&
       credentials[selectedRole]?.password === password
     ) {
       setErrorMessage("");
 
-      // Navigate based on role
       if (selectedRole === "student") {
         navigate("/dashboard");
       } else {
@@ -52,11 +50,36 @@ const LoginPage = () => {
 
   return (
     <>
+      {/* Background */}
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: -1
+        }}
+      ></div>
+
       {/* Top Panel */}
       <div className="pannel">
         <div className="pannel-left">
           <div className="pannel-logo">
-            <div className="logo"></div>
+            <div
+              className="logo"
+              style={{
+                backgroundImage: `url(${logoImage})`,
+                backgroundSize: "cover",
+                height: "100%",
+                width: "100%",
+              }}
+            ></div>
           </div>
           <div className="pannel-title">
             IMCA FERGUSSON COLLEGE, PLACEMENT CELL
@@ -68,14 +91,14 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Main Login Section */}
+      {/* Login Form Section */}
       <section className="container">
         <div className="logo-container">
           <h1>IMCA PLACEMENT PORTAL</h1>
           <h2>Sign In</h2>
 
           <form onSubmit={handleSubmit}>
-            {/* Role Select Dropdown */}
+            {/* Role Selector */}
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -89,7 +112,7 @@ const LoginPage = () => {
               <option value="admin">Admin</option>
             </select>
 
-            {/* Username Field */}
+            {/* Username Input */}
             <div className="input-group">
               <i className="fa-regular fa-user"></i>
               <input
@@ -101,7 +124,7 @@ const LoginPage = () => {
               />
             </div>
 
-            {/* Password Field */}
+            {/* Password Input */}
             <div className="input-group password-group">
               <i className="fa-solid fa-lock"></i>
               <input
@@ -112,9 +135,7 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <i
-                className={`fa-regular ${
-                  showPassword ? "fa-eye-slash" : "fa-eye"
-                }`}
+                className={`fa-regular ${showPassword ? "fa-eye-slash" : "fa-eye"}`}
                 onClick={() => setShowPassword((prev) => !prev)}
                 style={{ cursor: "pointer" }}
               ></i>
@@ -123,7 +144,7 @@ const LoginPage = () => {
             {/* Submit Button */}
             <button type="submit">Sign In</button>
 
-            {/* Error Message */}
+            {/* Error Display */}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </form>
         </div>
