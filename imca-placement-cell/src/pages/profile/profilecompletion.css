@@ -1,106 +1,237 @@
+/* profilecompletion.css */
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  
+.dashboardcontainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+.sidebar {
+  width: 240px;
+  background-color: #0d1b2a;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar .logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.roll-info {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.nav-links,
+.bottom-links {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.nav-links a,
+.bottom-links a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover,
+.bottom-links a:hover {
+  background-color: #1f4068;
+  cursor: pointer;
+}
+
+.nav-links i,
+.bottom-links i {
+  margin-right: 8px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
 .profile-form-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex: 1;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
 
-.stepper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    position: relative;
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #0d1b2a;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    flex: 1;
-    text-align: center;
+.form-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #dbe9f4;
 }
 
-.step-icon {
-    background: #e0e0e0;
-    color: #333;
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 20px;
-    margin-bottom: 5px;
-    transition: 0.3s;
+.stepper-icons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  padding: 0 10px;
 }
 
-.step.active .step-icon {
-    background: #007bff;
-    color: white;
-    transform: scale(1.2);
+.stepper-icons::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ccc;
+  z-index: 0;
 }
 
-.step.completed .step-icon {
-    background: green;
-    color: white;
+.stepper-divider {
+  height: 2px;
+  background-color: #dbe9f4;
+  margin: 10px 0 30px;
 }
 
-.step-line {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    right: -50%;
-    height: 2px;
-    background: #ccc;
-    z-index: -1;
+.step-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.step-content {
-    padding: 1rem;
+.step-icon-container .circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ccc;
+  background-color: #f1f1f1;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.form-group {
-    margin-bottom: 1rem;
+.step-icon-container .circle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background-color: inherit;
+  border-left: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  background: white;
 }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.step-icon-container.active .circle {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: #e6f0ff;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.step-icon-container.completed .circle {
+  border-color: #28a745;
+  color: #28a745;
+  background-color: #e8f5e9;
 }
 
-.form-navigation {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
+.tooltip {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #333;
+  text-align: center;
 }
 
-button {
-    padding: 0.6rem 1.5rem;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
+.form-content label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  color: #333;
 }
 
-button:hover {
-    background: #0056b3;
+.form-content input,
+.form-content select,
+.form-content textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-content input:focus,
+.form-content select:focus,
+.form-content textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.form-buttons button {
+  background-color: #0d1b2a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-buttons button:hover {
+  background-color: #1f4068;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.partition-divider {
+  border-top: 2px solid #dbe9f4;
+  margin: 20px 0;
 }

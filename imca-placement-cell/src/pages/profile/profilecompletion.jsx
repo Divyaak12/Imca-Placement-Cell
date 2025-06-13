@@ -1,166 +1,190 @@
 import React, { useState } from "react";
+import { FaUser, FaGraduationCap, FaMapMarkerAlt, FaProjectDiagram, FaFileAlt } from "react-icons/fa";
 import "./profilecompletion.css";
 
+const steps = [
+  { id: 1, title: "Personal Information", icon: <FaUser /> },
+  { id: 2, title: "Academic Details", icon: <FaGraduationCap /> },
+  { id: 3, title: "Address Details", icon: <FaMapMarkerAlt /> },
+  { id: 4, title: "Project Details", icon: <FaProjectDiagram /> },
+  { id: 5, title: "Documents", icon: <FaFileAlt /> },
+];
+
 const StudentProfileForm = () => {
-  const [formData, setFormData] = useState({
-    // Personal Information
-    fullName: "",
-    email: "",
-    phone: "",
-    dob: "",
-    gender: "",
-    address: "",
+  const [activeStep, setActiveStep] = useState(1);
 
-    // Academic Information
-    rollNumber: "",
-    branch: "",
-    semester: "",
-    cgpa: "",
-    tenthPercent: "",
-    twelfthPercent: "",
-
-    // Skills
-    programmingLanguages: "",
-    tools: "",
-    certifications: "",
-
-    // Projects & Internships
-    projects: "",
-    internships: "",
-
-    // Documents
-    resume: null,
-    photo: null,
-
-    // Declaration
-    declaration: false,
-  });
-
-  const [step, setStep] = useState(1);
-
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
-    });
+  const handleStepClick = (stepId) => {
+    setActiveStep(stepId);
   };
 
-  const handleNext = () => setStep(step + 1);
-  const handleBack = () => setStep(step - 1);
+  const renderStepForm = () => {
+    switch (activeStep) {
+      case 1:
+        return (
+          <div className="form-grid">
+            <div>
+              <label>Full Name</label>
+              <input type="text" placeholder="Enter your name" />
 
-  const handleSave = () => {
-    console.log("Step Data Saved", formData);
-    alert("Current step data saved successfully!");
-  };
+              <label>Roll Number</label>
+              <input type="text" placeholder="Enter roll number" />
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-    alert("Profile submitted successfully!");
-  };
+              <label>Email</label>
+              <input type="email" placeholder="Enter email" />
+            </div>
 
-  return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-xl mt-8 mb-16">
-      <h1 className="text-3xl font-bold text-center text-blue-800 mb-8">Student Profile Form</h1>
-      <form onSubmit={handleSubmit} className="space-y-10">
-        {step === 1 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Personal Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input name="fullName" placeholder="Full Name" onChange={handleChange} className="input" required />
-              <input name="email" type="email" placeholder="Email" onChange={handleChange} className="input" required />
-              <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input" required />
-              <input name="dob" type="date" placeholder="Date of Birth" onChange={handleChange} className="input" required />
-              <select name="gender" onChange={handleChange} className="input" required>
-                <option value="">Select Gender</option>
+            <div>
+              <label>Phone</label>
+              <input type="tel" placeholder="Enter phone number" />
+
+              <label>Date of Birth</label>
+              <input type="date" />
+
+              <label>Gender</label>
+              <select>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
               </select>
-              <input name="address" placeholder="Address" onChange={handleChange} className="input" required />
             </div>
-          </section>
-        )}
-
-        {step === 2 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Academic Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input name="rollNumber" placeholder="Roll Number" onChange={handleChange} className="input" required />
-              <input name="branch" placeholder="Branch" onChange={handleChange} className="input" required />
-              <input name="semester" placeholder="Semester" onChange={handleChange} className="input" required />
-              <input name="cgpa" placeholder="Current CGPA" onChange={handleChange} className="input" required />
-              <input name="tenthPercent" placeholder="10th %" onChange={handleChange} className="input" required />
-              <input name="twelfthPercent" placeholder="12th %" onChange={handleChange} className="input" required />
-            </div>
-          </section>
-        )}
-
-        {step === 3 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Technical Skills & Certifications</h2>
-            <textarea name="programmingLanguages" placeholder="Programming Languages (e.g. C++, Java)" onChange={handleChange} className="input" />
-            <textarea name="tools" placeholder="Tools/Technologies (e.g. Git, MySQL)" onChange={handleChange} className="input" />
-            <textarea name="certifications" placeholder="Certifications" onChange={handleChange} className="input" />
-          </section>
-        )}
-
-        {step === 4 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Projects and Internships</h2>
-            <textarea name="projects" placeholder="Projects Description" onChange={handleChange} className="input" />
-            <textarea name="internships" placeholder="Internship Details" onChange={handleChange} className="input" />
-          </section>
-        )}
-
-        {step === 5 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Documents</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input name="resume" type="file" accept=".pdf" onChange={handleChange} className="input" required />
-              <input name="photo" type="file" accept="image/*" onChange={handleChange} className="input" required />
-            </div>
-          </section>
-        )}
-
-        {step === 6 && (
-          <section>
-            <h2 className="text-xl font-semibold mb-4 text-blue-700">Declaration</h2>
-            <div className="flex items-start gap-2">
-              <input type="checkbox" name="declaration" checked={formData.declaration} onChange={handleChange} required className="mt-1" />
-              <label className="text-sm">
-                I hereby declare that all the information provided is true and correct to the best of my knowledge. I understand that providing false
-                information may result in disqualification from the placement process.
-              </label>
-            </div>
-          </section>
-        )}
-
-        <div className="flex justify-between gap-4">
-          {step > 1 && (
-            <button type="button" onClick={handleBack} className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">
-              Back
-            </button>
-          )}
-
-          <div className="flex gap-4 ml-auto">
-            <button type="button" onClick={handleSave} className="bg-yellow-400 text-black px-6 py-2 rounded-md hover:bg-yellow-500">
-              Save
-            </button>
-
-            {step < 6 ? (
-              <button type="button" onClick={handleNext} className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                Next
-              </button>
-            ) : (
-              <button type="submit" className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
-                Submit Profile
-              </button>
-            )}
           </div>
+        );
+      case 2:
+        return (
+          <div className="form-grid">
+            <div>
+              <label>Degree</label>
+              <input type="text" placeholder="Enter degree" />
+
+              <label>Department</label>
+              <input type="text" placeholder="Enter department" />
+
+              <label>Passing Year</label>
+              <input type="number" placeholder="Enter year" />
+            </div>
+
+            <div>
+              <label>CGPA</label>
+              <input type="text" placeholder="Enter CGPA" />
+
+              <label>University</label>
+              <input type="text" placeholder="Enter university name" />
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="form-grid">
+            <div>
+              <label>Address Line 1</label>
+              <input type="text" />
+
+              <label>City</label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label>State</label>
+              <input type="text" />
+
+              <label>PIN Code</label>
+              <input type="text" />
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="form-grid">
+            <div>
+              <label>Project Title</label>
+              <input type="text" />
+
+              <label>Technologies Used</label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label>Description</label>
+              <textarea />
+            </div>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="form-grid">
+            <div>
+              <label>Upload Resume</label>
+              <input type="file" />
+            </div>
+
+            <div>
+              <label>Upload Transcript</label>
+              <input type="file" />
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="dashboardcontainer">
+      <aside className="sidebar">
+        <img src="fergussonlogo.jpeg.jpg" alt="College Logo" className="logo" />
+        <div className="roll-info">
+          <strong>Roll No:</strong> 246429
+          <br />
+          <br />
+          <strong>Session:</strong> 2024-2025
         </div>
-      </form>
+        <div className="nav-links">
+          <a href="#"><i className="fas fa-home"></i> Home</a>
+          <a href="#"><i className="fas fa-user"></i> Profile</a>
+          <a href="#"><i className="fas fa-briefcase"></i> Internship</a>
+          <a href="#"><i className="fas fa-tasks"></i> Application Track</a>
+          <a href="#"><i className="fas fa-comments"></i> Interview</a>
+          <a href="#"><i className="fas fa-building"></i> Companies</a>
+          <a href="#"><i className="fas fa-envelope"></i> Contact</a>
+          <a href="#"><i className="fas fa-comment-dots"></i> Feedback</a>
+        </div>
+        <div className="bottom-links">
+          <a href="#"><i className="fas fa-cog"></i> Settings</a>
+          <a href="#"><i className="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+      </aside>
+
+      <div className="profile-form-container">
+        <div className="stepper-icons">
+          {steps.map((step) => (
+            <div
+              key={step.id}
+              className={`step-icon-container ${
+                activeStep === step.id ? "active" : activeStep > step.id ? "completed" : ""
+              }`}
+              onClick={() => handleStepClick(step.id)}
+            >
+              <div className="circle">{step.icon}</div>
+              <div className="tooltip">{step.title}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="partition-divider" />
+
+        <h2 className="form-title">{steps[activeStep - 1].title}</h2>
+
+        <div className="form-content">{renderStepForm()}</div>
+
+        <div className="form-buttons">
+          {activeStep > 1 && (
+            <button onClick={() => setActiveStep((prev) => prev - 1)}>Previous</button>
+          )}
+          {activeStep < steps.length && (
+            <button onClick={() => setActiveStep((prev) => prev + 1)}>Next</button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
