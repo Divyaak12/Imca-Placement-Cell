@@ -130,38 +130,15 @@ const StudentProfileForm = () => {
 
   return (
     <div className="dashboardcontainer">
-      <aside className="sidebar">
-        <img src="fergussonlogo.jpeg.jpg" alt="College Logo" className="logo" />
-        <div className="roll-info">
-          <strong>Roll No:</strong> 246429
-          <br />
-          <br />
-          <strong>Session:</strong> 2024-2025
-        </div>
-        <div className="nav-links">
-          <a href="#"><i className="fas fa-home"></i> Home</a>
-          <a href="#"><i className="fas fa-user"></i> Profile</a>
-          <a href="#"><i className="fas fa-briefcase"></i> Internship</a>
-          <a href="#"><i className="fas fa-tasks"></i> Application Track</a>
-          <a href="#"><i className="fas fa-comments"></i> Interview</a>
-          <a href="#"><i className="fas fa-building"></i> Companies</a>
-          <a href="#"><i className="fas fa-envelope"></i> Contact</a>
-          <a href="#"><i className="fas fa-comment-dots"></i> Feedback</a>
-        </div>
-        <div className="bottom-links">
-          <a href="#"><i className="fas fa-cog"></i> Settings</a>
-          <a href="#"><i className="fas fa-sign-out-alt"></i> Sign Out</a>
-        </div>
-      </aside>
+
 
       <div className="profile-form-container">
         <div className="stepper-icons">
           {steps.map((step) => (
             <div
               key={step.id}
-              className={`step-icon-container ${
-                activeStep === step.id ? "active" : activeStep > step.id ? "completed" : ""
-              }`}
+              className={`step-icon-container ${activeStep === step.id ? "active" : activeStep > step.id ? "completed" : ""
+                }`}
               onClick={() => handleStepClick(step.id)}
             >
               <div className="circle">{step.icon}</div>

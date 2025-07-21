@@ -41,11 +41,11 @@ const LoginPage = () => {
         const data = await res.json();
 
         if (res.ok) {
-          navigate("/dashboard/home", { state: { rollNumber: password } });
+          localStorage.setItem("rollNumber", password);  // ✅ Save roll no
+          navigate("/dashboard/home");
         } else {
           setErrorMessage(data.error || "Login failed.");
         }
-
       } catch (error) {
         console.error("Login error:", error);
         setErrorMessage("Something went wrong.");
