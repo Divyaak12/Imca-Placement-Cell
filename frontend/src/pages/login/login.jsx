@@ -30,6 +30,11 @@ const LoginPage = () => {
       Number(numberPart) <= 246429 &&
       password === numberPart;
 
+    const isValidAdmin =
+      role.toLowerCase() === "admin" &&
+      lowerUsername === "admin@fergusson" &&
+      password === "admin123";
+
     if (isValidStudent) {
       try {
         const res = await fetch("http://localhost:8000/api/students/login", {
@@ -41,7 +46,7 @@ const LoginPage = () => {
         const data = await res.json();
 
         if (res.ok) {
-          localStorage.setItem("rollNumber", password);  // ✅ Save roll no
+          localStorage.setItem("rollNumber", password);
           navigate("/dashboard/home");
         } else {
           setErrorMessage(data.error || "Login failed.");
@@ -50,6 +55,9 @@ const LoginPage = () => {
         console.error("Login error:", error);
         setErrorMessage("Something went wrong.");
       }
+    } else if (isValidAdmin) {
+      localStorage.setItem("adminLogin", true);
+      navigate("/admin/dashboard");
     } else {
       setErrorMessage("Invalid credentials.");
     }
@@ -78,7 +86,7 @@ const LoginPage = () => {
               <option value="" disabled>Select Role</option>
               <option value="student">Student</option>
               <option value="teacher" disabled>Teacher</option>
-              <option value="admin" disabled>Admin</option>
+              <option value="admin">Admin</option>
             </select>
 
             <div className="input-group">
