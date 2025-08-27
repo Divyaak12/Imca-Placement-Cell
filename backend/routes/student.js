@@ -1,5 +1,5 @@
 import express from "express";
-import Student from "../models/student.js";
+import Student from "../models/Student.js";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.post("/login", async (req, res) => {
     let student = await Student.findOne({ username });
 
     if (!student) {
-      // Validate new student credentials
+      // Validate roll number format
       const numberPart = username.replace("student@", "");
       const isValidStudent =
         username.startsWith("student@") &&
@@ -40,12 +40,23 @@ router.post("/login", async (req, res) => {
       }
     }
 
-    // Success
     res.status(200).json(student);
 
   } catch (err) {
     console.error("Login Error:", err);
     res.status(500).json({ error: "Server error" });
+  }
+});
+
+// POST /api/students (Save student form data)
+router.post("/", async (req, res) => {
+  try {
+    const student = new Student(req.body);
+    await student.save();
+    res.status(201).send("Student data saved successfully");
+  } catch (err) {
+    console.error("Student Save Error:", err);
+    res.status(500).send(err.message);
   }
 });
 

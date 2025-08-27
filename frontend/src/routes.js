@@ -5,6 +5,9 @@ import StudentDashboard from "./pages/studentdashboard/studentdashboard";
 import ProfileCompletion from "./pages/profile/profilecompletion";
 import Home from "./pages/studentdashboard/Home";
 
+
+import Admin from "./pages/admin/admin"; // Admin layout with sidebar
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -16,6 +19,12 @@ const AppRoutes = () => {
         <Route path="home" element={<Home />} />
         <Route path="profile" element={<ProfileCompletion />} />
       </Route>
+
+      {/* Admin Dashboard with Sidebar & Nested Routes */}
+      <Route path="/admin" element={<Admin />}>
+        <Route path="dashboard" element={<admin />} />
+      </Route>
+
     </Routes>
   );
 };

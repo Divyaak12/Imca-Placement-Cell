@@ -1,237 +1,184 @@
-/* profilecompletion.css */
-
+/* === Container === */
 .dashboardcontainer {
   display: flex;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #f5f7fa;
   min-height: 100vh;
-  width: 100%;
-  background: #f8f9fa;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.sidebar {
-  width: 240px;
-  background-color: #0d1b2a;
-  color: #fff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sidebar .logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.roll-info {
-  text-align: center;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.nav-links,
-.bottom-links {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.nav-links a,
-.bottom-links a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 4px;
-  margin-bottom: 8px;
-  transition: background-color 0.3s;
-}
-
-.nav-links a:hover,
-.bottom-links a:hover {
-  background-color: #1f4068;
-  cursor: pointer;
-}
-
-.nav-links i,
-.bottom-links i {
-  margin-right: 8px;
-  font-size: 16px;
-  vertical-align: middle;
 }
 
 .profile-form-container {
-  flex: 1;
-  padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-}
-
-.form-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #0d1b2a;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.form-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  max-width: 1000px;
   width: 100%;
-  height: 2px;
-  background-color: #dbe9f4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* === Stepper === */
 .stepper-icons {
   display: flex;
   justify-content: space-between;
-  position: relative;
-  margin-bottom: 30px;
-  padding: 0 10px;
-}
-
-.stepper-icons::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #ccc;
-  z-index: 0;
-}
-
-.stepper-divider {
-  height: 2px;
-  background-color: #dbe9f4;
-  margin: 10px 0 30px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .step-icon-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   cursor: pointer;
-  z-index: 1;
+  position: relative;
+  flex: 1;
+  min-width: 100px;
+  margin: 0.5rem 0;
 }
 
 .step-icon-container .circle {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #ccc;
+  background-color: #e0e0e0;
+  color: #555;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: #ccc;
-  background-color: #f1f1f1;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.step-icon-container .circle::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background-color: inherit;
-  border-left: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
-  background: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  transition: 0.3s;
 }
 
 .step-icon-container.active .circle {
-  border-color: #007bff;
-  color: #007bff;
-  background-color: #e6f0ff;
+  background-color: #0077ff;
+  color: white;
 }
 
 .step-icon-container.completed .circle {
-  border-color: #28a745;
-  color: #28a745;
-  background-color: #e8f5e9;
+  background-color: #4caf50;
+  color: white;
 }
 
-.tooltip {
-  font-size: 12px;
-  margin-top: 6px;
-  color: #333;
+.step-icon-container .tooltip {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #444;
   text-align: center;
 }
 
-.form-content label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
-  margin-top: 20px;
-  color: #333;
+/* === Divider === */
+.partition-divider {
+  height: 2px;
+  background-color: #eee;
+  margin-bottom: 2rem;
 }
 
-.form-content input,
-.form-content select,
-.form-content textarea {
-  width: 100%;
-  padding: 8px 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  transition: border-color 0.3s;
+/* === Form Title === */
+.form-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-.form-content input:focus,
-.form-content select:focus,
-.form-content textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-.form-buttons {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-}
-
-.form-buttons button {
-  background-color: #0d1b2a;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-buttons button:hover {
-  background-color: #1f4068;
-}
-
+/* === Form Grid === */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
+.form-grid div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+input,
+select,
 textarea {
-  resize: vertical;
-  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: 0.3s;
+  background-color: #fff;
 }
 
-.partition-divider {
-  border-top: 2px solid #dbe9f4;
-  margin: 20px 0;
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+/* === Program Block === */
+.program-block {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.program-block h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #0077ff;
+}
+
+/* === Buttons === */
+button {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005dc1;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Add/Remove Program */
+.program-block button {
+  background-color: #e53935;
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+.program-block button:hover {
+  background-color: #c62828;
+}
+
+/* Add Program Main Button */
+.form-content > button {
+  margin-bottom: 2rem;
+  background-color: #4caf50;
+}
+
+.form-content > button:hover {
+  background-color: #388e3c;
+}
+
+/* === Navigation Buttons === */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.form-buttons button {
+  flex: 1;
 }
