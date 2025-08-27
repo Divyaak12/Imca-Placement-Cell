@@ -29,7 +29,7 @@ const StudentDashboard = () => {
           <Link to="/dashboard/profile">
             <i className="fas fa-user"></i> Profile
           </Link>
-          <Link to="#">
+          <Link to="/dashboard/internship">
             <i className="fas fa-briefcase"></i> Internship
           </Link>
           <Link to="#">

@@ -1,0 +1,97 @@
+.dashboardcontainer {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 260px;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  /* Search and Filters */
+  .search-filter-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .search-filter-container input,
+  .search-filter-container select {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .remote-only {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .internship-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Internship Card Styling */
+  .internship-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 280px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .internship-card h3 {
+    margin: 0 0 5px;
+  }
+  
+  .role {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .stipend {
+    font-weight: bold;
+    color: green;
+    margin-bottom: 5px;
+  }
+  
+  .location,
+  .deadline,
+  .duration {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .apply-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  
+  .apply-btn:hover {
+    background: #0056b3;
+  }
+  
+  .applied-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 10px;
+  }

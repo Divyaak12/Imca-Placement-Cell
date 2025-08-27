@@ -33,7 +33,7 @@ const Home = () => {
             </div>
             <div className="recruiter"><img src="https://via.placeholder.com/30" alt="Logo" /><span>PQR COMPANY</span></div>
             <div className="recruiter"><img src="https://via.placeholder.com/30" alt="Logo" /><span>MNO COMPANY</span></div>
-            <div className="see-more"><a href="#">+ See More Companies</a></div>
+            <div className="see-more"><a href="InternshipPage.jsx">+ See More Companies</a></div>
           </div>
         </div>
 

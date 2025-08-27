@@ -45,7 +45,7 @@
 }
 
 .step-icon-container.active .circle {
-  background-color: #0077ff;
+  background-color:#333;;
   color: white;
 }
 
@@ -110,7 +110,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #0077ff;
+  border-color: #333;
   outline: none;
 }
 
@@ -126,12 +126,12 @@ textarea:focus {
 .program-block h4 {
   margin-bottom: 1rem;
   font-weight: 600;
-  color: #0077ff;
+  color: #333;
 }
 
 /* === Buttons === */
 button {
-  background-color: #0077ff;
+  background-color: #333;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -143,7 +143,7 @@ button {
 }
 
 button:hover {
-  background-color: #005dc1;
+  background-color: #333;;
 }
 
 button:disabled {

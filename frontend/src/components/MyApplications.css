@@ -1,0 +1,112 @@
+.applications-container {
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.applications-container h2 {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.applications-container p {
+  color: #6b7280; /* gray-500 */
+  margin-bottom: 16px;
+}
+
+.application-card {
+  background: white;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.application-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.application-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.selected {
+  background: #dcfce7; /* light green */
+  color: #15803d; /* green-700 */
+}
+
+.role {
+  font-size: 16px;
+  color: #374151;
+  margin: 4px 0 12px 0;
+}
+
+.application-info {
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+.application-info p {
+  margin: 4px 0;
+}
+
+.stipend {
+  font-weight: bold;
+  color: #16a34a; /* green-600 */
+}
+
+.application-message {
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 16px;
+  color: #065f46; /* green-800 */
+  font-weight: 500;
+}
+
+.application-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-outline {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-outline:hover {
+  background: #f3f4f6;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #16a34a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+}
