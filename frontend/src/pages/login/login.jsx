@@ -67,7 +67,10 @@ const LoginPage = () => {
     <>
       <div className="pannel">
         <div className="pannel-left">
-          <div className="pannel-logo"></div>
+          {/* Keep this div as your logo container */}
+          <div className="pannel-logo">
+            {/* You can put your logo image here if needed */}
+          </div>
           <div className="pannel-title">IMCA FERGUSSON COLLEGE, PLACEMENT CELL</div>
         </div>
         <div className="pannel-ops">

@@ -2,9 +2,10 @@
 .dashboardcontainer {
   display: flex;
   justify-content: center;
-  padding: 3rem;
+  padding: 3rem 1rem;
   background-color: #f5f7fa;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .profile-form-container {
@@ -19,9 +20,9 @@
 /* === Stepper === */
 .stepper-icons {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+  justify-content: center; /* instead of space-between */
   flex-wrap: wrap;
+  gap: 1.5rem; /* spacing between items */
 }
 
 .step-icon-container {

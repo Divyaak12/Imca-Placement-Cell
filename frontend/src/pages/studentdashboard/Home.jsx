@@ -1,14 +1,18 @@
 import React from "react";
+import "./studentdashboard.css";
 
 const Home = () => {
   return (
-    <>
+    <div className="main-content">
+      
+
       <section className="notice-box">
         <p><strong>Welcome, Prathamesh Davhale!</strong></p>
         <p><strong>Notice:</strong> Josh is visiting for campus placement on 03/07/2025. Interested students must register by 03/10/2025.</p>
       </section>
 
       <div className="dashboard-grid">
+        {/* Profile Completion */}
         <div className="box profile-completion">
           <h3>Profile Completion:</h3>
           <div className="bar"><div style={{ width: "80%" }}>PERSONAL</div></div>
@@ -17,6 +21,7 @@ const Home = () => {
           <div className="bar"><div style={{ width: "20%" }}>DOCUMENT</div></div>
         </div>
 
+        {/* Recruiters */}
         <div className="box recruiters">
           <h3>Recruiters:</h3>
           <div className="recruiter-list">
@@ -37,6 +42,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Campus Achiever */}
         <div className="box achiever">
           <h3>Campus Achiever:</h3>
           <img src="https://via.placeholder.com/40" alt="A1" />
@@ -44,6 +50,7 @@ const Home = () => {
           <img src="https://via.placeholder.com/40" alt="A3" />
         </div>
 
+        {/* Upcoming Events */}
         <div className="box events">
           <h3>Upcoming Events:</h3>
           <ul>
@@ -53,7 +60,7 @@ const Home = () => {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

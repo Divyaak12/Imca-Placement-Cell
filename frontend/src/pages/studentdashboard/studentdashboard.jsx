@@ -1,5 +1,4 @@
 import React from "react";
-import "./studentdashboard.css";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 const StudentDashboard = () => {
@@ -66,8 +65,9 @@ const StudentDashboard = () => {
           <h2>Industrial Mathematics with Computer Application</h2>
         </header>
 
-        {/* 👇 This will render child route like /dashboard/home */}
-        <Outlet />
+        <div className="outlet-container">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
